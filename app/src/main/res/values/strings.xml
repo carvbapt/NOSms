@@ -1,12 +1,34 @@
 <resources>
-    <string name="app_name">NOS sms</string>
+    <!-- TODO: Toolbar -->
+    <string name="app_name">SMS</string>
     <string name="logo">Nos</string>
     <string name="conf">Configurar</string>
+
+    <!-- TODO: Activity Main -->
     <string name="tipo">Tipo ?</string>
     <string name="wo">WO</string>
     <string name="task">TASK</string>
+    <string name="n">Nº</string>
+    <string name="numero">numero</string>
+    <string name="apagar">Apagar</string>
     <string name="nos">NOSFIELD1 </string>
-
-    <string name="refresh"> REFRESH </string>
     <string name="sair"> Sair </string>
+
+    <!-- TODO: Fragment Previsao -->
+    <string name="previsao">Previsão</string>
+    <string name="hora">HH</string>
+    <string name="minuto">mm</string>
+    <string name="sep">:</string>
+    <string name="motivo">Motivo</string>
+    <string name="transito">Transito</string>
+    <string name="acidente">Acidente</string>
+    <string name="doenca">Material</string>
+
+    <!-- TODO: Fragment Iniciar -->
+    <string name="inicio">Iniciar</string>
+    <string name="enviar">ENVIAR</string>
+
+    <!-- TODO: Fragment Fechar-->
+    <string name="fim">Fechar</string>
+
 </resources>
