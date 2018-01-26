@@ -20,19 +20,19 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
-        <EditText
-            android:id="@+id/ET_Hora"
-            android:layout_width="50dp"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="8dp"
-            android:layout_marginTop="8dp"
-            android:ems="2"
-            android:hint="@string/hora"
-            android:inputType="time"
-            android:textAlignment="center"
-            android:textStyle="bold"
-            app:layout_constraintStart_toEndOf="@+id/TV_Previsao"
-            app:layout_constraintTop_toTopOf="parent" />
+    <EditText
+        android:id="@+id/ET_Hora"
+        android:layout_width="50dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:ems="2"
+        android:hint="@string/hora"
+        android:inputType="time"
+        android:textAlignment="center"
+        android:textStyle="bold"
+        app:layout_constraintStart_toEndOf="@+id/TV_Previsao"
+        app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
             android:id="@+id/TV_Sep"
@@ -68,12 +68,12 @@
             android:layout_marginEnd="32dp"
             android:layout_marginStart="16dp"
             android:contentDescription="@string/apagar"
+            android:onClick="onClick"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.289"
             app:layout_constraintStart_toEndOf="@+id/ET_Minuto"
             app:layout_constraintTop_toTopOf="@+id/ET_Minuto"
             app:srcCompat="@android:drawable/ic_delete" />
-
 
         <TextView
             android:id="@+id/TV_Motivo"
@@ -87,7 +87,6 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/TV_Previsao" />
 
-
         <Button
             android:id="@+id/BT_EnviaP"
             android:layout_width="0dp"
@@ -96,6 +95,7 @@
             android:background="@color/green"
             android:drawableEnd="@android:drawable/ic_menu_send"
             android:gravity="center"
+            android:onClick="onClick"
             android:paddingLeft="100dp"
             android:paddingRight="100dp"
             android:text="@string/enviar"
@@ -106,5 +106,56 @@
             app:layout_constraintHorizontal_bias="1.0"
             app:layout_constraintStart_toStartOf="parent" />
 
+    <Spinner
+        android:id="@+id/SP_Motivo"
+        style="@style/Widget.AppCompat.Spinner.Underlined"
+        android:layout_width="0dp"
+        android:layout_height="45dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:focusable="true"
+        android:focusableInTouchMode="true"
+        android:nextFocusDown="@id/ET_Outro"
+        android:textSize="30sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toEndOf="@+id/TV_Motivo"
+        app:layout_constraintTop_toBottomOf="@+id/TV_Previsao" />
+
+        <TextView
+            android:id="@+id/TV_Outro"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="16dp"
+            android:focusable="true"
+            android:focusableInTouchMode="true"
+            android:text="@string/outro"
+            android:textSize="24sp"
+            android:textStyle="bold"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/TV_Motivo" />
+
+    <EditText
+        android:id="@+id/ET_Outro"
+        android:layout_width="0dp"
+        android:layout_height="47dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="12dp"
+        android:ems="10"
+        android:enabled="true"
+        android:focusable="true"
+        android:focusableInTouchMode="true"
+        android:hint="@string/outro"
+        android:inputType="text"
+        android:textAlignment="textStart"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.027"
+        app:layout_constraintStart_toEndOf="@+id/TV_Outro"
+        app:layout_constraintTop_toBottomOf="@+id/TV_Motivo" />
 
 </android.support.constraint.ConstraintLayout>

@@ -20,10 +20,16 @@
     <string name="minuto">mm</string>
     <string name="sep">:</string>
     <string name="motivo">Motivo</string>
-    <string name="transito">Transito</string>
-    <string name="acidente">Acidente</string>
-    <string name="doenca">Material</string>
-
+    <string-array name="amotivo">
+        <item id="1"> </item>
+        <item id="2">ACIDENTE</item>
+        <item id="3">MATERIAL</item>
+        <item id="4">POLICIA</item>
+        <item id="5">TRANSITO</item>
+        <item id="6">Outro</item>
+    </string-array>
+    <string name="selec">Selecionar Motivo</string>
+    <string name="outro">Outro</string>
     <!-- TODO: Fragment Iniciar -->
     <string name="inicio">Iniciar</string>
     <string name="enviar">ENVIAR</string>

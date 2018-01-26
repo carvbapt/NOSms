@@ -72,6 +72,9 @@ public class Main extends AppCompatActivity implements View.OnClickListener  {
         rb_Wo.setOnClickListener ( this );
         rb_Task.setOnClickListener ( this );
 
+        et_Numero.requestFocus ( );
+        imm.toggleSoftInput ( InputMethodManager.SHOW_FORCED, InputMethodManager.HIDE_IMPLICIT_ONLY );
+
         et_Numero.addTextChangedListener ( new TextWatcher ( ) {
             @Override
             public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
@@ -83,10 +86,8 @@ public class Main extends AppCompatActivity implements View.OnClickListener  {
 
             @Override
             public void afterTextChanged(Editable editable) {
-                if ( (rb_Wo.isChecked ()  && et_Numero.getText ( ).toString ( ).length ( ) >=4 ) || (rb_Task.isChecked () && et_Numero.getText ( ).toString ( ).length ( ) >=6 ) )
-                        //!(et_Numero.getText ( ).toString ( ).equals ( "" ) ))
+                if ( (rb_Wo.isChecked ()  && et_Numero.getText ( ).toString ( ).length ( ) >=5 ) || (rb_Task.isChecked () && et_Numero.getText ( ).toString ( ).length ( ) >=6 ) )
                 {
-                        et_Numero.requestFocus ( );
                         imm.hideSoftInputFromWindow ( et_Numero.getWindowToken ( ), 0 );
                         rgb_Timer.setVisibility ( View.VISIBLE );
                         fl_Frag.setVisibility ( View.VISIBLE );
@@ -121,9 +122,10 @@ public class Main extends AppCompatActivity implements View.OnClickListener  {
             }
         }else if(view ==findViewById ( R.id.RB_Previsao )) {
             fl_Frag.setVisibility ( View.VISIBLE );
+            imm.hideSoftInputFromWindow ( et_Numero.getWindowToken ( ), 0 );
             getSupportFragmentManager ( ).beginTransaction ( ).replace ( R.id.FL_Fragment, new Previsao ( ) ).commit ( );
-            imm.showSoftInput ( et_Numero,InputMethodManager.SHOW_IMPLICIT );
         }else if(view==findViewById ( R.id.RB_Inicio )) {
+            et_Numero.clearFocus ();
             fl_Frag.setVisibility ( View.VISIBLE );
             getSupportFragmentManager ( ).beginTransaction ( ).replace ( R.id.FL_Fragment, new Iniciar ( ) ).commit ( );
         }else if(view==findViewById ( R.id.RB_Fim )){
