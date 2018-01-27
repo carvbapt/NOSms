@@ -7,7 +7,6 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
-import android.widget.TextView;
 import android.widget.Toast;
 
 
@@ -16,9 +15,8 @@ import android.widget.Toast;
  */
 public class Iniciar extends Fragment {
 
-    TextView t;
     Button bt_EnviaI;
-    Main m_Iniciar;
+    Main I_Main;
 
     String str_I;
 
@@ -28,18 +26,16 @@ public class Iniciar extends Fragment {
         // Inflate the layout for this fragment
         final View view = inflater.inflate ( R.layout.fragment_iniciar, container, false );
 
-        m_Iniciar = (Main)getActivity ();
+        I_Main = (Main)getActivity ();
 
         bt_EnviaI=view.findViewById ( R.id.BT_EnviaI );
-        t= view.findViewById ( R.id.TV );
-        t.setVisibility ( View.INVISIBLE );
 
         str_I="";
-        if(m_Iniciar.rb_Wo.isChecked () && !m_Iniciar.et_Numero.getText ().toString ().equals ("")) {
-            str_I= getText ( R.string.nos ) + " " + getText ( R.string.wo ) + " " + m_Iniciar.et_Numero.getText ( ) + " 2";
+        if(I_Main.rb_Wo.isChecked () && !I_Main.et_Numero.getText ().toString ().equals ("")) {
+            str_I= getText ( R.string.codigo ) + " " + getText ( R.string.wo ) + " " + I_Main.et_Numero.getText ( ) + " 2";
             bt_EnviaI.setVisibility ( View.VISIBLE );
-        }else if(m_Iniciar.rb_Task.isChecked () && !m_Iniciar.et_Numero.getText ().toString ().equals ( "" )) {
-            str_I= getText ( R.string.nos ) + " " + getText ( R.string.task ) + " " + m_Iniciar.et_Numero.getText ( ) + " 2";
+        }else if(I_Main.rb_Task.isChecked () && !I_Main.et_Numero.getText ().toString ().equals ( "" )) {
+            str_I= getText ( R.string.codigo ) + " " + getText ( R.string.task ) + " " + I_Main.et_Numero.getText ( ) + " 2";
             bt_EnviaI.setVisibility ( View.VISIBLE );
         }
 

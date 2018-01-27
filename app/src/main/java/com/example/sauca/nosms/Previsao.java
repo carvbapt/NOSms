@@ -29,7 +29,7 @@ public class Previsao extends Fragment implements View.OnClickListener {
 
     View view;
     EditText et_Hora, et_Minuto, et_Outro;
-    Main m_Previsao;
+    Main P_Main;
     InputMethodManager imm_P;
     Button bt_EnviaP;
     ImageButton ib_ApagarP;
@@ -44,7 +44,7 @@ public class Previsao extends Fragment implements View.OnClickListener {
         // Inflate the layout for this fragment
         view = inflater.inflate ( R.layout.fragment_previsao, container, false );
 
-        m_Previsao = (Main) getActivity ( );
+        P_Main = (Main) getActivity ( );
         imm_P = (InputMethodManager) getActivity ( ).getSystemService ( Context.INPUT_METHOD_SERVICE );
 
         bt_EnviaP = view.findViewById ( R.id.BT_EnviaP );
@@ -160,19 +160,19 @@ public class Previsao extends Fragment implements View.OnClickListener {
                 break;
             case (R.id.BT_EnviaP):
                 str_P = "";
-                if (m_Previsao.rb_Wo.isChecked ( ) && !m_Previsao.et_Numero.getText ( ).toString ( ).equals ( "" )) {
-                    str_P = getText ( R.string.nos ) + " " + getText ( R.string.wo ) + " " + m_Previsao.et_Numero.getText ( ) + " 1";
+                if (P_Main.rb_Wo.isChecked ( ) && !P_Main.et_Numero.getText ( ).toString ( ).equals ( "" )) {
+                    str_P = getText ( R.string.codigo ) + " " + getText ( R.string.wo ) + " " + P_Main.et_Numero.getText ( ) + " 1 ";
 
-                } else if (m_Previsao.rb_Task.isChecked ( ) && !m_Previsao.et_Numero.getText ( ).toString ( ).equals ( "" )) {
-                    str_P = getText ( R.string.nos ) + " " + getText ( R.string.task ) + " " + m_Previsao.et_Numero.getText ( ) + " 1";
+                } else if (P_Main.rb_Task.isChecked ( ) && !P_Main.et_Numero.getText ( ).toString ( ).equals ( "" )) {
+                    str_P = getText ( R.string.codigo ) + " " + getText ( R.string.task ) + " " + P_Main.et_Numero.getText ( ) + " 1 ";
                 }
 
                 if (sp_Motivo.getSelectedItem ( ).toString ( ).equals ( "" ) && et_Outro.getText ( ).toString ( ).equals ( "" )) {
                     Toast.makeText ( getContext ( ), getString ( R.string.selec ), Toast.LENGTH_LONG ).show ( );
                 } else if (sp_Motivo.getSelectedItem ( ).toString ( ).equals (getString ( R.string.outro ) )) {
-                    str_P = str_P + " " + et_Hora.getText ( ) + getString ( R.string.sep ) + et_Minuto.getText ( ) + " " + et_Outro.getText ( ).toString ( ).toUpperCase ( );
+                    str_P = str_P + et_Hora.getText ( ) + getString ( R.string.sep ) + et_Minuto.getText ( ) + " " + et_Outro.getText ( ).toString ( ).toUpperCase ( );
                 } else {
-                    str_P = str_P + " " + et_Hora.getText ( ) + getString ( R.string.sep ) + et_Minuto.getText ( ) + " " + sp_Motivo.getSelectedItem ( ).toString ( );
+                    str_P = str_P + et_Hora.getText ( ) + getString ( R.string.sep ) + et_Minuto.getText ( ) + " " + sp_Motivo.getSelectedItem ( ).toString ( );
                 }
 
                 et_Outro.setEnabled ( true );

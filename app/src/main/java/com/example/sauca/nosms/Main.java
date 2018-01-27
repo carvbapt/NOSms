@@ -129,6 +129,7 @@ public class Main extends AppCompatActivity implements View.OnClickListener  {
             fl_Frag.setVisibility ( View.VISIBLE );
             getSupportFragmentManager ( ).beginTransaction ( ).replace ( R.id.FL_Fragment, new Iniciar ( ) ).commit ( );
         }else if(view==findViewById ( R.id.RB_Fim )){
+            et_Numero.clearFocus ();
             fl_Frag.setVisibility ( View.VISIBLE );
             getSupportFragmentManager ( ).beginTransaction ( ).replace ( R.id.FL_Fragment, new Fechar ( ) ).commit ( );
         } else if (view == findViewById ( R.id.BT_Sair )) {

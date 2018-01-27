@@ -8,10 +8,10 @@
     <string name="tipo">Tipo ?</string>
     <string name="wo">WO</string>
     <string name="task">TASK</string>
-    <string name="n">Nº</string>
+    <string name="num">Nº</string>
     <string name="numero">numero</string>
     <string name="apagar">Apagar</string>
-    <string name="nos">NOSFIELD1 </string>
+    <string name="codigo">NOSFIELD1 </string>
     <string name="sair"> Sair </string>
 
     <!-- TODO: Fragment Previsao -->
@@ -36,5 +36,39 @@
 
     <!-- TODO: Fragment Fechar-->
     <string name="fim">Fechar</string>
+    <string name="sucesso">Sucesso</string>
+    <string name="insucesso">Insucesso</string>
+    <string name="cliente">Cliente</string>
+    <string name="cli">C</string>
+    <string name="nos">NOS</string>
+    <string name="n">N</string>
+    <string name="parceiro">Parceiro</string>
+    <string name="p">P</string>
+    <string name="resumo">Resumo</string>
 
+    <!--
+    NOSFIELD1 TASK 123456 3 C ex. equipamento desligado
+    NOSFIELD1 TASK 123456 3 C ex. equipamento partido
+    NOSFIELD1 TASK 123456 4 C ex. cliente ausente
+    NOSFIELD1 TASK 123456 4 C ex. sem condicoes
+    NOSFIELD1 TASK 123456 4 C ex. falta equipamento
+
+    NOSFIELD1 TASK 123456 3 N ex. avaria comum
+    NOSFIELD1 TASK 123456 3 N ex. substituicao equipamento
+    NOSFIELD1 TASK 123456 3 N ex. configuracoes equipamento
+    NOSFIELD1 TASK 123456 3 N ex. reconfiguracoes equipamento
+    NOSFIELD1 TASK 123456 3 N ex. instalacao equipamento
+    NOSFIELD1 TASK 123456 3 N ex. atualizacao equipamento
+    NOSFIELD1 TASK 123456 3 N ex. testes equipamento
+    NOSFIELD1 TASK 123456 3 N ex. testes acesso
+    NOSFIELD1 TASK 123456 3 N ex. recolha equipamento
+    NOSFIELD1 TASK 123456 3 N ex. retificacao de ligacoes
+    NOSFIELD1 TASK 123456 4 N ex. morada incorrecta
+    NOSFIELD1 TASK 123456 4 N ex. local sem cobertura
+    NOSFIELD1 TASK 123456 4 N ex. maus valores linha
+
+    NOSFIELD1 TASK 123456 4 P ex. levou equipamento errado
+    NOSFIELD1 TASK 123456 4 P ex. equipamento esgotado
+
+    -->
 </resources>
