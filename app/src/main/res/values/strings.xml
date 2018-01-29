@@ -1,8 +1,10 @@
 <resources>
     <!-- TODO: Toolbar -->
     <string name="app_name">SMS</string>
+    <string name="vers">beta</string>
     <string name="logo">Nos</string>
     <string name="conf">Configurar</string>
+    <string name="outro">Outro</string>
 
     <!-- TODO: Activity Main -->
     <string name="tipo">Tipo ?</string>
@@ -20,16 +22,7 @@
     <string name="minuto">mm</string>
     <string name="sep">:</string>
     <string name="motivo">Motivo</string>
-    <string-array name="amotivo">
-        <item id="1"> </item>
-        <item id="2">ACIDENTE</item>
-        <item id="3">MATERIAL</item>
-        <item id="4">POLICIA</item>
-        <item id="5">TRANSITO</item>
-        <item id="6">Outro</item>
-    </string-array>
     <string name="selec">Selecionar Motivo</string>
-    <string name="outro">Outro</string>
     <!-- TODO: Fragment Iniciar -->
     <string name="inicio">Iniciar</string>
     <string name="enviar">ENVIAR</string>
@@ -46,29 +39,4 @@
     <string name="p">P</string>
     <string name="resumo">Resumo</string>
 
-    <!--
-    NOSFIELD1 TASK 123456 3 C ex. equipamento desligado
-    NOSFIELD1 TASK 123456 3 C ex. equipamento partido
-    NOSFIELD1 TASK 123456 4 C ex. cliente ausente
-    NOSFIELD1 TASK 123456 4 C ex. sem condicoes
-    NOSFIELD1 TASK 123456 4 C ex. falta equipamento
-
-    NOSFIELD1 TASK 123456 3 N ex. avaria comum
-    NOSFIELD1 TASK 123456 3 N ex. substituicao equipamento
-    NOSFIELD1 TASK 123456 3 N ex. configuracoes equipamento
-    NOSFIELD1 TASK 123456 3 N ex. reconfiguracoes equipamento
-    NOSFIELD1 TASK 123456 3 N ex. instalacao equipamento
-    NOSFIELD1 TASK 123456 3 N ex. atualizacao equipamento
-    NOSFIELD1 TASK 123456 3 N ex. testes equipamento
-    NOSFIELD1 TASK 123456 3 N ex. testes acesso
-    NOSFIELD1 TASK 123456 3 N ex. recolha equipamento
-    NOSFIELD1 TASK 123456 3 N ex. retificacao de ligacoes
-    NOSFIELD1 TASK 123456 4 N ex. morada incorrecta
-    NOSFIELD1 TASK 123456 4 N ex. local sem cobertura
-    NOSFIELD1 TASK 123456 4 N ex. maus valores linha
-
-    NOSFIELD1 TASK 123456 4 P ex. levou equipamento errado
-    NOSFIELD1 TASK 123456 4 P ex. equipamento esgotado
-
-    -->
 </resources>

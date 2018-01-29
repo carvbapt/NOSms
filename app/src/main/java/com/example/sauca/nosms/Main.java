@@ -120,18 +120,16 @@ public class Main extends AppCompatActivity implements View.OnClickListener  {
             if((rb_Wo.isChecked ()  && et_Numero.getText ( ).toString ( ).length ( ) >=4 ) || (rb_Task.isChecked () && et_Numero.getText ( ).toString ( ).length ( ) >=6 )){
                 getSupportFragmentManager ( ).beginTransaction ( ).replace ( R.id.FL_Fragment, new Iniciar ( ) ).commit ( );
             }
-        }else if(view ==findViewById ( R.id.RB_Previsao )) {
-            fl_Frag.setVisibility ( View.VISIBLE );
+        }else if(view ==findViewById ( R.id.RB_Previsao )||view==findViewById ( R.id.RB_Inicio )||view==findViewById ( R.id.RB_Fim )) {
             imm.hideSoftInputFromWindow ( et_Numero.getWindowToken ( ), 0 );
-            getSupportFragmentManager ( ).beginTransaction ( ).replace ( R.id.FL_Fragment, new Previsao ( ) ).commit ( );
-        }else if(view==findViewById ( R.id.RB_Inicio )) {
             et_Numero.clearFocus ();
             fl_Frag.setVisibility ( View.VISIBLE );
-            getSupportFragmentManager ( ).beginTransaction ( ).replace ( R.id.FL_Fragment, new Iniciar ( ) ).commit ( );
-        }else if(view==findViewById ( R.id.RB_Fim )){
-            et_Numero.clearFocus ();
-            fl_Frag.setVisibility ( View.VISIBLE );
-            getSupportFragmentManager ( ).beginTransaction ( ).replace ( R.id.FL_Fragment, new Fechar ( ) ).commit ( );
+            if(view==findViewById ( R.id.RB_Previsao ))
+                getSupportFragmentManager ( ).beginTransaction ( ).replace ( R.id.FL_Fragment, new Previsao ( ) ).commit ( );
+            else if(view==findViewById ( R.id.RB_Inicio ))
+                getSupportFragmentManager ( ).beginTransaction ( ).replace ( R.id.FL_Fragment, new Iniciar ( ) ).commit ( );
+            else
+                getSupportFragmentManager ( ).beginTransaction ( ).replace ( R.id.FL_Fragment, new Fechar ( ) ).commit ( );
         } else if (view == findViewById ( R.id.BT_Sair )) {
             moveTaskToBack ( true );
             finish ( );

@@ -19,6 +19,8 @@ import android.widget.ImageButton;
 import android.widget.Spinner;
 import android.widget.Toast;
 
+import java.util.ArrayList;
+
 import static android.view.KeyEvent.KEYCODE_ENTER;
 
 
@@ -35,7 +37,8 @@ public class Previsao extends Fragment implements View.OnClickListener {
     ImageButton ib_ApagarP;
 
     Spinner sp_Motivo;
-    ArrayAdapter aa_Motivo;
+    ArrayAdapter<String> aa_Motivo;
+    ArrayList<String> aa_Load;
     String str_P;
 
     @Override
@@ -53,12 +56,14 @@ public class Previsao extends Fragment implements View.OnClickListener {
         ib_ApagarP = view.findViewById ( R.id.IB_ApagarP );
         sp_Motivo = view.findViewById ( R.id.SP_Motivo );
         et_Outro = view.findViewById ( R.id.ET_Outro );
-        bt_EnviaP.setVisibility ( View.INVISIBLE );
 
         et_Outro.setEnabled ( false );
         et_Outro.setFocusable ( false );
 
-        aa_Motivo = ArrayAdapter.createFromResource ( getContext ( ), R.array.amotivo, android.R.layout.simple_spinner_item );
+        aa_Load= Dados.Motivo;
+        aa_Load.add (getString ( R.string.outro ));
+        aa_Motivo = new ArrayAdapter<> ( getActivity (), android.R.layout.simple_list_item_1 ,aa_Load);
+        //aa_Motivo = ArrayAdapter.createFromResource ( getContext ( ), R.array.amotivo, android.R.layout.simple_spinner_item );
         sp_Motivo.setAdapter ( aa_Motivo );
 
         et_Hora.requestFocus ( );
@@ -106,6 +111,7 @@ public class Previsao extends Fragment implements View.OnClickListener {
             public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
                 if(et_Minuto.getText ( ).toString ( ).length ( ) == 2) {
                     if(sp_Motivo.getSelectedItem ().toString ().equals ( getString ( R.string.outro))){
+                        bt_EnviaP.setVisibility ( View.INVISIBLE );
                         et_Outro.setEnabled ( true );
                         et_Outro.setFocusable ( true );
                         et_Outro.setFocusableInTouchMode(true);
@@ -118,9 +124,8 @@ public class Previsao extends Fragment implements View.OnClickListener {
             }
 
             @Override
-            public void onNothingSelected(AdapterView<?> adapterView) {
+            public void onNothingSelected(AdapterView<?> adapterView) {}
 
-            }
         } );
 
         et_Outro.setOnKeyListener ( new View.OnKeyListener ( ) {
@@ -148,7 +153,7 @@ public class Previsao extends Fragment implements View.OnClickListener {
 
         switch (view.getId ( )) {
             case (R.id.IB_ApagarP):
-                bt_EnviaP.setVisibility ( View.INVISIBLE );
+                bt_EnviaP.setVisibility ( View.VISIBLE );
                 et_Outro.setEnabled ( false );
                 et_Outro.setFocusable ( false );
                 et_Outro.setText ( "" );

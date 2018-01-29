@@ -27,7 +27,6 @@ public class Iniciar extends Fragment {
         final View view = inflater.inflate ( R.layout.fragment_iniciar, container, false );
 
         I_Main = (Main)getActivity ();
-
         bt_EnviaI=view.findViewById ( R.id.BT_EnviaI );
 
         str_I="";
