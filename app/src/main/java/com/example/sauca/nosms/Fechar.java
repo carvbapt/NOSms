@@ -20,11 +20,13 @@ import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import java.util.ArrayList;
-import java.util.Collections;
+import java.util.*;
 
-import static com.example.sauca.nosms.Dados.SNos;
-
+import static com.example.sauca.nosms.Dados_Ini.ICliente;
+import static com.example.sauca.nosms.Dados_Ini.INos;
+import static com.example.sauca.nosms.Dados_Ini.IParceiros;
+import static com.example.sauca.nosms.Dados_Ini.SCliente;
+import static com.example.sauca.nosms.Dados_Ini.SNos;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -41,7 +43,7 @@ public class Fechar extends Fragment implements View.OnClickListener {
     InputMethodManager imm_F;
     Spinner sp_Resumo;
     ArrayAdapter<String> aa_Resumo;
-    ArrayList<String> aa_Load;
+    ArrayList<String> aa_Load ;
     String str_F;
 
     @Override
@@ -71,10 +73,11 @@ public class Fechar extends Fragment implements View.OnClickListener {
         //et_Resumo.requestFocus ();
         //imm_F.toggleSoftInput ( InputMethodManager.SHOW_FORCED, InputMethodManager.HIDE_IMPLICIT_ONLY );
 
-        aa_Load= SNos;
+        aa_Load=new ArrayList<> ( );
+        aa_Load.add ( "1" );
+        SL_Resumo ( 3 );
         sp_Resumo.performClick ( );
 
-        SL_Resumo ( 3 );
 
         sp_Resumo.setOnItemSelectedListener ( new AdapterView.OnItemSelectedListener ( ) {
             @Override
@@ -90,12 +93,15 @@ public class Fechar extends Fragment implements View.OnClickListener {
                         bt_EnviaF.setVisibility ( View.VISIBLE );
             }
 
-            //@Override
-            public void onNothingSelected(AdapterView<?> adapterView) {}
+            @Override
+            public void onNothingSelected(AdapterView<?> adapterView) {
+                imm_F.toggleSoftInput ( InputMethodManager.SHOW_FORCED, InputMethodManager.HIDE_IMPLICIT_ONLY );
+                sp_Resumo.setSelection ( 0 );
+            }
         } );
 
         et_Resumo.setOnEditorActionListener ( new TextView.OnEditorActionListener ( ) {
-            //@Override
+            @Override
             public boolean onEditorAction(TextView textView, int i, KeyEvent keyEvent) {
                 if (i == EditorInfo.IME_ACTION_DONE) {
                     bt_EnviaF.setVisibility ( View.VISIBLE );
@@ -121,6 +127,7 @@ public class Fechar extends Fragment implements View.OnClickListener {
     public void onClick(View v) {
 
         if (v == view.findViewById ( R.id.IB_ApagarF)){
+            rb_Sucesso.setChecked ( true );
             rb_Nos.setChecked ( true );
             et_Resumo.setEnabled ( false );
             et_Resumo.setFocusable ( false );
@@ -147,12 +154,11 @@ public class Fechar extends Fragment implements View.OnClickListener {
             else
                 str_F = str_F + " " + sp_Resumo.getSelectedItem ( ).toString ( );
             Toast.makeText ( getContext ( ), str_F, Toast.LENGTH_SHORT ).show ( );
+            aa_Load.clear ();
         }
     }
 
     public void SL_Resumo(int s){
-
-        aa_Load.clear ();
 
         str_F = "";
         if (F_Main.rb_Wo.isChecked ( ) && !F_Main.et_Numero.getText ( ).toString ( ).equals ( "" )) {
@@ -161,32 +167,37 @@ public class Fechar extends Fragment implements View.OnClickListener {
             str_F = getText ( R.string.codigo ) + " " + getText ( R.string.task ) + " " + F_Main.et_Numero.getText ( );
         }
 
+        if(aa_Load!= null && !aa_Load.isEmpty ()) {
+            aa_Load.clear ( );
+        }
+
         switch (s){
             case (3):
                 str_F = str_F + " "+s+" ";
                 if (rb_Cliente.isChecked ()) {
                     str_F = str_F + getString ( R.string.cli );
-                    aa_Load= Dados.SCliente;
+                    aa_Load= SCliente;
                 } else if (rb_Nos.isChecked ()) {
                     str_F=str_F + getString ( R.string.n );
-                    aa_Load= Dados.SNos;
+                    aa_Load= SNos;
                 }
                 break;
             case (4):
                 str_F=str_F+ " "+s+" ";
                 if(rb_Cliente.isChecked ()){
                     str_F=str_F + getString ( R.string.cli );
-                    aa_Load= Dados.ICliente;
+                    aa_Load= ICliente;
                 }else if(rb_Nos.isChecked ()){
                     str_F=str_F + getString ( R.string.n );
-                    aa_Load= Dados.INos;
+                    aa_Load= INos;
                 }else if(rb_Parceiro.isChecked ()){
                     str_F=str_F + getString ( R.string.p );
-                    aa_Load= Dados.IParceiros;
+                    aa_Load= IParceiros;
                 }
                 break;
         }
 
+        if (aa_Load == null) throw new AssertionError ( );
         Collections.sort (aa_Load);
         aa_Load.add ( getString ( R.string.outro ) );
         aa_Resumo = new ArrayAdapter<> ( getActivity ( ), android.R.layout.simple_list_item_1, aa_Load);

@@ -1,6 +1,7 @@
 package com.example.sauca.nosms;
 
 import android.content.Context;
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
@@ -15,11 +16,12 @@ import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
-import android.widget.Toast;
+
 
 public class Main extends AppCompatActivity implements View.OnClickListener  {
 
     // Variables definitions
+    Intent intent;
     Toolbar toolbar;
     ImageButton ib_Conf,ib_Apagar;
     ImageView iv_Fundo;
@@ -39,7 +41,7 @@ public class Main extends AppCompatActivity implements View.OnClickListener  {
         setContentView ( R.layout.activity_main );
 
         // Find the toolbar view inside the activity layout
-        toolbar = findViewById ( R.id.toolbar );
+        toolbar = findViewById ( R.id.toolbarM );
         // Sets the Toolbar to act as the ActionBar for this Activity window.
         // Make sure the toolbar exists in the activity and is not null
         setSupportActionBar ( toolbar );
@@ -64,6 +66,10 @@ public class Main extends AppCompatActivity implements View.OnClickListener  {
         fl_Frag.setVisibility ( View.INVISIBLE );
         rgb_Timer.setVisibility ( View.INVISIBLE );
 
+
+
+
+
         if ( savedInstanceState == null) {
             getSupportFragmentManager ( ).beginTransaction ( ).add ( R.id.FL_Fragment, new Iniciar ( ) ).commit ( );
         }
@@ -73,6 +79,7 @@ public class Main extends AppCompatActivity implements View.OnClickListener  {
         rb_Task.setOnClickListener ( this );
 
         et_Numero.requestFocus ( );
+        imm.showSoftInput(et_Numero, InputMethodManager.SHOW_IMPLICIT);
         imm.toggleSoftInput ( InputMethodManager.SHOW_FORCED, InputMethodManager.HIDE_IMPLICIT_ONLY );
 
         et_Numero.addTextChangedListener ( new TextWatcher ( ) {
@@ -107,7 +114,9 @@ public class Main extends AppCompatActivity implements View.OnClickListener  {
     public void onClick(View view) {
 
         if (view == findViewById ( R.id.IB_Conf )) {
-            Toast.makeText ( this, getText ( R.string.conf ), Toast.LENGTH_LONG ).show ( );
+            imm.hideSoftInputFromWindow ( et_Numero.getWindowToken ( ), 0 );
+            intent = new Intent(this, Config.class);
+            startActivity(intent);
         }else if(view==findViewById ( R.id.IB_Apagar )){
             et_Numero.setText ( "" );
             et_Numero.requestFocus ();

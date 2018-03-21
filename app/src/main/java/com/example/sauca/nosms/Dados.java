@@ -1,66 +1,96 @@
 package com.example.sauca.nosms;
 
-import android.support.v7.app.AppCompatActivity;
-
-import java.util.ArrayList;
 
 /*
  * Created by Sauca on 28-01-2018.
  */
 
-public class Dados extends AppCompatActivity{
+import java.util.Date;
 
-    public static ArrayList<String> SCliente=  new ArrayList<>();
-    static {
-        SCliente=new ArrayList<> (  );
-        SCliente.add ("EQUIPAMENTO DESLIGADO");
-        SCliente.add ("EQUIPAMENTO LIGADO");
+public class Dados {
+
+    //Campos
+    private long ID;
+    private char Genero;
+    private int Ordem;
+    private Date Dta;
+    private char Estado;
+    private char Resultado;
+    private char Responsabilidade;
+    private String Descricao;
+
+    public Dados(){}
+
+    public Dados(long ID, char genero, int ordem, Date dta, char estado, char resultado, char responsabilidade, String descricao) {
+        this.ID = ID;
+        this.Genero = genero;
+        this.Ordem = ordem;
+        this.Dta = dta;
+        this.Estado = estado;
+        this.Resultado = resultado;
+        this.Responsabilidade = responsabilidade;
+        this.Descricao = descricao;
     }
 
-    public static ArrayList<String > ICliente= new ArrayList<>();
-    static {
-        ICliente=new ArrayList<> (  );
-        ICliente.add ("CLIENTE AUSENTE");
-        ICliente.add ("SEM CONDICOES");
-        ICliente.add ("FALTA EQUIPAMENTO");
+    public void setID(long ID) {
+        this.ID = ID;
     }
 
-    public static ArrayList<String > SNos= new ArrayList<>();
-    static {
-        SNos = new ArrayList<> ( );
-        SNos.add ("AVARIA COMUM");
-        SNos.add ("SUBSTITUICAO EQUIPAMENTO");
-        SNos.add ("CONFIGURACOES EQUIPAMENTO");
-        SNos.add ("RECONFIGURACOES EQUIPAMENTO");
-        SNos.add ("INSTALACAO EQUIPAMENTO");
-        SNos.add ("ATUALIZACAO EQUIPAMENTO");
-        SNos.add ("TESTES EQUIPAMENTO");
-        SNos.add ("TESTES ACESSO");
-        SNos.add ("RECOLHA EQUIPAMENTO");
-        SNos.add ("RETIFICACAO DE LIGACOES");
+    public long getID() {
+        return this.ID;
     }
 
-    public static ArrayList<String> INos= new ArrayList<>();
-    static {
-        INos = new ArrayList<> ( );
-        INos.add ( "MORADA INCORRECTA" );
-        INos.add ( "LOCAL SEM COBERTURA" );
-        INos.add ( "MAUS VALORES LINHA" );
+    public void setGenero(char genero) {
+        this.Genero = genero;
     }
 
-    public static ArrayList<String > IParceiros= new ArrayList<>();
-    static {
-        IParceiros = new ArrayList<> ( );
-        IParceiros.add ( "LEVOU EQUIPAMENTO ERRADO" );
-        IParceiros.add ( "EQUIPAMENTO ESGOTADO" );
+    public char  getGenero() {
+        return this.Genero;
     }
 
-    public static ArrayList<String > Motivo= new ArrayList<>();
-    static {
-        Motivo = new ArrayList<> ( );
-        Motivo.add ( "ACIDENTE" );
-        Motivo.add ( "MATERIAL" );
-        Motivo.add ( "POLICIA" );
-        Motivo.add ( "TRANSITO" );
+    public void setOrdem(int ordem) {
+        this.Ordem = ordem;
+    }
+
+    public int getOrdem() {
+        return this.Ordem;
+    }
+
+    public void setDta(Date dta) {
+        this.Dta = dta;
+    }
+
+    public Date getDta() {
+        return this.Dta;
+    }
+
+    public void setEstado(char estado) {
+        this.Estado = estado;
+    }
+
+    public char getEstado() {
+        return this.Estado;
+    }
+
+    public void setResultado(char resultado) {
+        this.Resultado = resultado;
+    }
+
+    public char getResultado() {
+        return this.Resultado;
+    }
+
+    public void setResponsabilidade(char responsabilidade) { this.Responsabilidade = responsabilidade; }
+
+    public char getResponsabilidade() {
+        return this.Responsabilidade;
+    }
+
+    public void setDescricao(String descricao) {
+        this.Descricao = descricao;
+    }
+
+    public String getDescricao() {
+        return this.Descricao;
     }
 }

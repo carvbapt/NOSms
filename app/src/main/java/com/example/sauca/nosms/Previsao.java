@@ -22,6 +22,7 @@ import android.widget.Toast;
 import java.util.ArrayList;
 
 import static android.view.KeyEvent.KEYCODE_ENTER;
+import static com.example.sauca.nosms.Dados_Ini.Motivo;
 
 
 /**
@@ -38,7 +39,7 @@ public class Previsao extends Fragment implements View.OnClickListener {
 
     Spinner sp_Motivo;
     ArrayAdapter<String> aa_Motivo;
-    ArrayList<String> aa_Load;
+    ArrayList<String> aa_LoadP;
     String str_P;
 
     @Override
@@ -60,10 +61,9 @@ public class Previsao extends Fragment implements View.OnClickListener {
         et_Outro.setEnabled ( false );
         et_Outro.setFocusable ( false );
 
-        aa_Load= Dados.Motivo;
-        aa_Load.add (getString ( R.string.outro ));
-        aa_Motivo = new ArrayAdapter<> ( getActivity (), android.R.layout.simple_list_item_1 ,aa_Load);
-        //aa_Motivo = ArrayAdapter.createFromResource ( getContext ( ), R.array.amotivo, android.R.layout.simple_spinner_item );
+        aa_LoadP= Motivo;
+        aa_LoadP.add (getString ( R.string.outro ));
+        aa_Motivo = new ArrayAdapter<> ( getActivity (), android.R.layout.simple_list_item_1 ,aa_LoadP);
         sp_Motivo.setAdapter ( aa_Motivo );
 
         et_Hora.requestFocus ( );
@@ -88,10 +88,7 @@ public class Previsao extends Fragment implements View.OnClickListener {
         } );
 
         et_Minuto.addTextChangedListener ( new TextWatcher ( ) {
-            @Override
             public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {}
-
-            @Override
             public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {}
 
             @Override

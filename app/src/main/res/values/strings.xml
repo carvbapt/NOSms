@@ -4,7 +4,6 @@
     <string name="vers">beta</string>
     <string name="logo">Nos</string>
     <string name="conf">Configurar</string>
-    <string name="outro">Outro</string>
 
     <!-- TODO: Activity Main -->
     <string name="tipo">Tipo ?</string>
@@ -16,6 +15,10 @@
     <string name="codigo">NOSFIELD1 </string>
     <string name="sair"> Sair </string>
 
+    <!-- TODO: Activity Config -->
+    <string name="operador">Operadora</string>
+    <string name="contacto">Contacto</string>
+
     <!-- TODO: Fragment Previsao -->
     <string name="previsao">Previsão</string>
     <string name="hora">HH</string>
@@ -23,6 +26,7 @@
     <string name="sep">:</string>
     <string name="motivo">Motivo</string>
     <string name="selec">Selecionar Motivo</string>
+
     <!-- TODO: Fragment Iniciar -->
     <string name="inicio">Iniciar</string>
     <string name="enviar">ENVIAR</string>
@@ -38,5 +42,10 @@
     <string name="parceiro">Parceiro</string>
     <string name="p">P</string>
     <string name="resumo">Resumo</string>
+
+    <!-- TODO: Varios-->
+    <string name="outro">Outro</string>
+    <string name="dados">Dados</string>
+    <string name="saved">Saved in SharedPreferences.</string>
 
 </resources>
